@@ -1,0 +1,17 @@
+# Virtual uv workspace: `model/` (the MLX port) and `sandbox/` (CUDA-emulation
+# sandbox + upstream PyTorch reference oracle). One lockfile, one .venv.
+[tool.uv.workspace]
+members = ["model", "sandbox"]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["model/tests", "sandbox/tests"]
+# Undeclared markers are errors (a typo would otherwise silently select nothing). Set
+# KIRIN_REQUIRE_FIXTURES=1 to turn skips for missing fixtures/weights into failures.
+markers = [
+    "weights: needs the Hugging Face checkpoints (kirin-mlx download)",
+    "reference: needs the upstream PyTorch reference (torch + sandbox/upstream)",
+]
+addopts = "-ra --strict-markers"

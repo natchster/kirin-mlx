@@ -1,0 +1,28 @@
+# Python / uv
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Large / third-party material fetched by sandbox/setup.sh or `kirin-mlx download` (never committed)
+checkpoints/
+sandbox/upstream/
+# AiM3D features/captions and the zip index (sandbox/scripts/fetch_aim_samples.py)
+sandbox/assets/
+
+# Generated reference fixtures (golden-<device>/: non-CPU oracle runs) and benchmark results
+sandbox/golden/
+sandbox/golden-*/
+model/benchmarks/results/*.json
+!model/benchmarks/results/.gitkeep
+!model/benchmarks/results/2026-11-22-Apple-M4-Pro.json
+
+# Generated motion
+out/
+
+# OS
+.DS_Store

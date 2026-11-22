@@ -1,0 +1,34 @@
+kirin-mlx
+Copyright (c) 2026 The kirin-mlx Authors. Licensed under the MIT License (LICENSE).
+
+This project is an independent MLX re-implementation of the motion generator of Kirin
+("Kirin: Animal Motion Generation from In-the-Wild Video", Zhao, Pan, Rehg, Wu and Wu, ECCV 2026,
+https://github.com/briannlongzhao/kirin), ported from commit 252a5ecae27383fb18757ac18da643cc809bbcd2.
+It is not affiliated with or endorsed by the Kirin authors.
+
+Third-party code the port derives from (license texts in licenses/):
+
+* Kirin (briannlongzhao/kirin) - MIT, Copyright (c) 2026 Brian. licenses/Kirin-LICENSE.txt
+* MDM, "Human Motion Diffusion Model" (GuyTevet/motion-diffusion-model), the basis of Kirin's
+  motion_generation/ - MIT, Copyright (c) 2022 Guy Tevet. licenses/MDM-LICENSE.txt
+  model/kirin_mlx/mdm.py and model.py re-implement model/mdm.py, utils/sampler_util.py and the
+  generation path of generate.py.
+* guided-diffusion (openai/guided-diffusion), vendored by MDM - MIT, Copyright (c) 2021 OpenAI.
+  licenses/guided-diffusion-LICENSE.txt. model/kirin_mlx/diffusion.py re-implements the cosine
+  schedule, SpacedDiffusion and the p_sample update.
+* HumanML3D / text-to-motion (EricGuo5513), motion_process.py and quaternion.py as vendored by MDM -
+  MIT, Copyright (c) 2020 Chuan Guo. licenses/HumanML3D-text-to-motion-LICENSE.txt.
+  model/kirin_mlx/motion.py re-implements recover_root_rot_pos / recover_from_ric.
+* Hugging Face transformers, models/distilbert/modeling_distilbert.py - Apache-2.0,
+  Copyright The HuggingFace Team. model/kirin_mlx/distilbert.py re-implements the DistilBERT forward
+  pass and model/kirin_mlx/tokenizer.py the BERT uncased WordPiece pipeline of tokenizer.json.
+* motionbricks-mlx sandbox (sandbox/cudashim/torch_cuda.py, sandbox/tests/test_torch_cuda_shim.py) -
+  Apache-2.0, Copyright 2026 The motionbricks-mlx Authors; headers kept. torch_cuda.py is modified
+  (torch.cuda seed/cache patches are fresh wrappers, for torch._dynamo compatibility).
+
+Not included in this repository (downloaded on request, each verified against a pinned SHA-256):
+
+* Kirin weights: huggingface.co/briannlongzhao/kirin (MIT per the model card).
+* DistilBERT weights and vocabulary: huggingface.co/distilbert/distilbert-base-uncased (Apache-2.0).
+* AiM3D test-clip features and captions (sandbox/scripts/fetch_aim_samples.py, optional): fetched
+  from download.cs.stanford.edu for local evaluation only; not redistributed.

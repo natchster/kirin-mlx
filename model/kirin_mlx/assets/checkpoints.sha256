@@ -1,0 +1,17 @@
+# sha256  bytes  path  (path = <repository folder>/<file in the repository>)
+# kirin/                    huggingface.co/briannlongzhao/kirin @ c3a9114a1604e2fd5f1203df0dfc610137962a6c (MIT)
+# distilbert-base-uncased/  huggingface.co/distilbert/distilbert-base-uncased @ 12040accade4e8a0f71eabdb258fecc2e7e948be (Apache-2.0)
+# LFS files use the oid published by Hugging Face; the small Git files were hashed at the pinned revision.
+733241121b13633affe8dd7d6d48a308824a75ca570607063d7092ea7b504ed8 1628 kirin/kirin_text/args.json
+050cd7765835c8d5bece04050d548b3e9a8401b593607b325c878ccacdc2b65a 3384 kirin/kirin_text/Mean.npy
+d579bdfa857a671f70b6f4da8973faafb51701be8d40774de633d8ec3092d83d 3384 kirin/kirin_text/Std.npy
+f6c4d5772260b06a37645a912d428e24b1c21d3d176c517a523ff6b5e718aaf3 116586110 kirin/kirin_text/model.pt
+5d9c5ad2fe277ad490d938cbc7c4885db6d3e8eac7c9935e261d06b771d62471 1655 kirin/kirin_text_image/args.json
+d85451a0142b902cce0e4ff2fc45642a51ba28b95c69e882ad3d6e6454020517 3384 kirin/kirin_text_image/Mean.npy
+595dec9bf49cdca73f3699c299f38edd16a48642626b872c616aea63a8cd270f 3384 kirin/kirin_text_image/Std.npy
+6362a25ec3ea09fd323261231824cd9d7ecd16593b64d3df0c7f7a04dea79800 118157814 kirin/kirin_text_image/model.pt
+69c94b0222d5d1f4b0ad027ca7416cdafb98378cbbb8305d0bf47c9365c60c83 483 distilbert-base-uncased/config.json
+5e3f1108e3cb34ee048634875d8482665b65ac713291a7e32396fb18f6ff0063 267954768 distilbert-base-uncased/model.safetensors
+a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10 48 distilbert-base-uncased/tokenizer_config.json
+ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98 466062 distilbert-base-uncased/tokenizer.json
+07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3 231508 distilbert-base-uncased/vocab.txt

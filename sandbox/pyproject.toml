@@ -1,0 +1,39 @@
+[project]
+name = "kirin-cuda-sandbox"
+version = "0.1.0"
+description = "CUDA-emulation sandbox for Apple silicon (torch.cuda -> MPS) plus the upstream Kirin PyTorch reference oracle"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+# Floors are the tested versions: the golden fixtures are only bit-reproducible with the oracle
+# stack they were made with (the lockfile pins it exactly; meta.json next to the fixtures records it).
+dependencies = [
+    "torch>=2.15",
+    "numpy>=1.26",
+    "transformers==5.0.0",  # = upstream environment.yml: DistilBERT text encoder (+ DINOv3 pipeline)
+    "safetensors>=0.8",
+    "scipy>=1.14",        # upstream motion_process -> skeleton.py imports scipy.ndimage
+    "joblib>=1.4",        # upstream utils/sampler_util.py
+    "tqdm>=4.66",
+    # The rest of upstream generate.py's import chain (dataset, plotting), so `cudashim-run` can
+    # run the unmodified script: moviepy.editor exists only in 1.x, spacy is pinned <3.9 upstream.
+    "moviepy==1.0.3",
+    "matplotlib>=3.9",
+    "spacy>=3.8,<3.9",
+    "scikit-learn>=1.5",
+    "kirin-mlx",
+]
+
+[tool.uv.sources]
+kirin-mlx = { workspace = true }
+
+[project.scripts]
+cudashim-doctor = "cudashim.doctor:main"
+cudashim-run = "cudashim.run:main"
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["cudashim"]
